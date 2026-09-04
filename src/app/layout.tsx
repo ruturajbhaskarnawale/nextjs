@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { SecurityProvider } from './provider/SecurityProvider';
 
 export const metadata: Metadata = {
   title: 'SecureShield Test Website - Next.js (React)',
@@ -13,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SecurityProvider>
+          {children}
+        </SecurityProvider>
+      </body>
     </html>
   );
 }
+
+
